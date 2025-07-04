@@ -1,14 +1,15 @@
 .content {
 	width: 880px;
 }
+
 .profile {
 	margin-top: 40px;
 	display: flex;
 }
 
-.profile__image {
-	margin: 0;
-	width: 120px;
-	height: 120px;
-	border-radius: 58px;
+/* TELAS PEQUENAS ATÉ 544px */
+@media screen and (max-width: 544px) {
+	.content {
+		max-width: 282px;
+	}
 }

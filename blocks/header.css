@@ -13,3 +13,23 @@
 	width: 880px;
 	margin-top: 41px;
 }
+
+/* TELAS PEQUENAS ATÉ 544px */
+@media screen and (max-width: 544px) {
+	.header {
+		max-width: 320px;
+		height: 74px;
+		margin-top: 28px;
+	}
+
+	.header__logo {
+		margin-left: 27px;
+		width: 126px;
+		height: 24px;
+	}
+
+	.header__line {
+		width: 320px;
+		margin-top: 32px;
+	}
+}
