@@ -1,0 +1,10 @@
+.footer {
+	width: 880px;
+	margin: 67px auto 60px;
+}
+
+.footer__signature {
+	color: #545454;
+	font-size: 18px;
+	line-height: 100%;
+}

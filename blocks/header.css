@@ -1,0 +1,15 @@
+.header {
+	width: 880px;
+	height: 74px;
+	margin-top: 45px;
+}
+
+.header__logo {
+	width: 173px;
+	height: 33px;
+}
+
+.header__line {
+	width: 880px;
+	margin-top: 41px;
+}

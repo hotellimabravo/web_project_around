@@ -1,0 +1,42 @@
+.elements_grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px 17px;
+}
+
+.elements_grid__card {
+	width: 282px;
+	height: 361px;
+	background: #ffffff;
+	border-radius: 16px;
+}
+
+.elements_grid__card-img {
+	border-radius: 16px 16px 0 0;
+}
+
+.elements_grid__card-text__container {
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	margin: 25px 0 31px;
+}
+
+.elements__grid__card-text {
+	background: #ffffff;
+	color: #000000;
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 100%;
+}
+
+.elements__grid_card-like__button {
+	width: 21px;
+	height: 19px;
+	background: #ffffff;
+	cursor: pointer;
+}
+
+.elements__grid_card-like__button:hover {
+	opacity: 50%;
+}
