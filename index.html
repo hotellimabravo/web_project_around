@@ -134,11 +134,54 @@
 						</div>
 					</div>
 				</section>
+
+				<!-- POP UP FORMULÁRIO -->
+				<div class="popup">
+					<!-- popup -->
+					<div class="popup__container">
+						<button class="popup__close-button">
+							<img
+								src="./images/Close Icon.png"
+								class="popup__close-button-img" />
+						</button>
+						<form class="popup__form">
+							<h2 class="popup__form-title">Editar Perfil</h2>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								class="popup__input"
+								placeholder="Nome"
+								required
+								minlength="2"
+								maxlength="40" />
+							<input
+								type="text"
+								id="description"
+								name="description"
+								class="popup__input"
+								placeholder="Descrição"
+								required
+								minlength="2"
+								maxlength="40" />
+
+							<button
+								type="submit"
+								name="salvar"
+								value="submit"
+								id="submit"
+								class="popup__form-save">
+								Salvar
+							</button>
+						</form>
+					</div>
+				</div>
 			</main>
 			<footer class="footer">
 				<!-- footer -->
 				<p class="footer__signature">© 2024 Around The U.S.</p>
 			</footer>
 		</div>
+		<script src="./scripts/index.js"></script>
 	</body>
 </html>

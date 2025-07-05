@@ -1,9 +1,14 @@
 * {
-	background-color: #000000;
 	color: #ffffff;
 	font-family: 'Inter', sans-serif;
 	max-width: 1280px;
 	margin: 0 auto;
+	z-index: 0;
+}
+
+body {
+	background: #000000;
+	/* position: absolute; */
 }
 
 @media screen and (max-width: 1024px) {
@@ -11,7 +16,4 @@
 		max-width: 880px;
 		margin: 0 auto;
 	}
-}
-
-@media screen and (max-width: 544px) {
 }
