@@ -1,28 +1,28 @@
-.elements {
+.element {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px 17px;
 }
 
-.element__card {
+.card__element {
 	width: 282px;
 	height: 361px;
 	background: #ffffff;
 	border-radius: 16px;
 }
 
-.element__card-img {
+.card__element-img {
 	border-radius: 16px 16px 0 0;
 }
 
-.element__card-text__container {
+.card__element-text__container {
 	background: #ffffff;
 	display: flex;
 	align-items: center;
 	margin: 25px 0 31px;
 }
 
-.element__card-text {
+.card__element-text {
 	background: #ffffff;
 	color: #000000;
 	font-weight: 900;
@@ -30,19 +30,19 @@
 	line-height: 100%;
 }
 
-.element__card-like__button {
+.card__element-like__button {
 	width: 21px;
 	height: 19px;
 	background: #ffffff;
 	cursor: pointer;
 }
 
-.element__card-like__button:hover {
+.card__element-like__button:hover {
 	opacity: 50%;
 }
 
 @media screen and (max-width: 1024px) {
-	.elements {
+	.element {
 		width: 580px;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -51,7 +51,7 @@
 }
 
 @media screen and (max-width: 544px) {
-	.elements {
+	.element {
 		max-width: 282px;
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
