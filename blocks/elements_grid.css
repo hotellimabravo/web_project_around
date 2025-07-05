@@ -1,28 +1,28 @@
-.elements__grid {
+.elements {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px 17px;
 }
 
-.elements__grid-card {
+.element__grid-card {
 	width: 282px;
 	height: 361px;
 	background: #ffffff;
 	border-radius: 16px;
 }
 
-.elements__grid-card-img {
+.element__grid-card-img {
 	border-radius: 16px 16px 0 0;
 }
 
-.elements__grid-card-text__container {
+.element__grid-card-text__container {
 	background: #ffffff;
 	display: flex;
 	align-items: center;
 	margin: 25px 0 31px;
 }
 
-.elements__grid-card-text {
+.element__grid-card-text {
 	background: #ffffff;
 	color: #000000;
 	font-weight: 900;
@@ -30,14 +30,14 @@
 	line-height: 100%;
 }
 
-.elements__grid_card-like__button {
+.element__grid-card-like__button {
 	width: 21px;
 	height: 19px;
 	background: #ffffff;
 	cursor: pointer;
 }
 
-.elements__grid_card-like__button:hover {
+.element__grid-card-like__button:hover {
 	opacity: 50%;
 }
 
