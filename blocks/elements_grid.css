@@ -1,28 +1,28 @@
-.elements_grid {
+.elements__grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px 17px;
 }
 
-.elements_grid__card {
+.elements__grid-card {
 	width: 282px;
 	height: 361px;
 	background: #ffffff;
 	border-radius: 16px;
 }
 
-.elements_grid__card-img {
+.elements__grid-card-img {
 	border-radius: 16px 16px 0 0;
 }
 
-.elements_grid__card-text__container {
+.elements__grid-card-text__container {
 	background: #ffffff;
 	display: flex;
 	align-items: center;
 	margin: 25px 0 31px;
 }
 
-.elements__grid__card-text {
+.elements__grid-card-text {
 	background: #ffffff;
 	color: #000000;
 	font-weight: 900;
