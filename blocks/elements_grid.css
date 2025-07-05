@@ -4,25 +4,25 @@
 	gap: 20px 17px;
 }
 
-.card__element {
+.card {
 	width: 282px;
 	height: 361px;
 	background: #ffffff;
 	border-radius: 16px;
 }
 
-.card__element-img {
+.card__img {
 	border-radius: 16px 16px 0 0;
 }
 
-.card__element-text__container {
+.card__text-container {
 	background: #ffffff;
 	display: flex;
 	align-items: center;
 	margin: 25px 0 31px;
 }
 
-.card__element-text {
+.card__text {
 	background: #ffffff;
 	color: #000000;
 	font-weight: 900;
@@ -30,14 +30,14 @@
 	line-height: 100%;
 }
 
-.card__element-like__button {
+.card__like-button {
 	width: 21px;
 	height: 19px;
 	background: #ffffff;
 	cursor: pointer;
 }
 
-.card__element-like__button:hover {
+.card__like-button:hover {
 	opacity: 50%;
 }
 
