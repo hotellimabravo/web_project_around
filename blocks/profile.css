@@ -69,7 +69,7 @@
 }
 
 /* TELAS PEQUENAS ATÉ 544px */
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 560px) {
 	.profile {
 		max-width: 320px;
 		display: flex;

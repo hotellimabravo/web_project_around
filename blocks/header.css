@@ -1,7 +1,8 @@
 .header {
-	width: 880px;
+	max-width: 1024px;
 	height: 74px;
 	margin-top: 45px;
+	border-bottom: 1px solid #E6E6E6;
 }
 
 .header__logo {
@@ -9,16 +10,9 @@
 	height: 33px;
 }
 
-.header__line {
-	width: 880px;
-	margin-top: 41px;
-}
-
 /* TELAS PEQUENAS ATÉ 544px */
 @media screen and (max-width: 544px) {
 	.header {
-		max-width: 320px;
-		height: 74px;
 		margin-top: 28px;
 	}
 
@@ -26,10 +20,5 @@
 		margin-left: 27px;
 		width: 126px;
 		height: 24px;
-	}
-
-	.header__line {
-		width: 320px;
-		margin-top: 32px;
 	}
 }

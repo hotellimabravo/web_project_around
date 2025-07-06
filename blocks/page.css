@@ -3,7 +3,6 @@
 	font-family: 'Inter', sans-serif;
 	max-width: 1280px;
 	margin: 0 auto;
-	z-index: 0;
 }
 
 body {
@@ -12,8 +11,8 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
-	* {
+	/* * {
 		max-width: 880px;
 		margin: 0 auto;
-	}
+	} */
 }

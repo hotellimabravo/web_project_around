@@ -1,20 +1,23 @@
 .popup {
 	min-width: 880px;
 	max-width: 100vw;
+	/* width: 100vw; */
 	height: 100vh;
 	position: fixed;
-	margin: 0 auto;
-	align-self: center;
+	/* margin: 0 auto; */
+	/* align-self: center; */
 	top: 0px;
 	background: rgba(0, 0, 0, 0.8);
 	z-index: 1000;
 	visibility: hidden;
 	display: flex;
-	align-items: center;
+	justify-content: center;
+	/* align-items: center; */
 }
 
 .popup_opened {
 	visibility: visible;
+	box-sizing: border-box;
 }
 
 .popup__container {
@@ -23,8 +26,8 @@
 	height: 330px;
 	margin-top: 10px;
 	border-radius: 16px;
-	align-self: center;
-	position: static;
+	/* align-self: center; */
+	position: absolute;
 	top: 180px;
 	transition: opacity 250ms ease;
 	z-index: 1001;
@@ -112,7 +115,6 @@
 
 	.popup__close-button {
 		position: relative;
-
 		left: 278px;
 	}
 }
