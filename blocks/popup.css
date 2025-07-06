@@ -1,18 +1,14 @@
 .popup {
-	min-width: 880px;
-	max-width: 100vw;
-	/* width: 100vw; */
+	min-width: 100vw;
 	height: 100vh;
 	position: fixed;
-	/* margin: 0 auto; */
-	/* align-self: center; */
 	top: 0px;
+	left: 0px;
 	background: rgba(0, 0, 0, 0.8);
 	z-index: 1000;
 	visibility: hidden;
 	display: flex;
 	justify-content: center;
-	/* align-items: center; */
 }
 
 .popup_opened {
@@ -26,7 +22,6 @@
 	height: 330px;
 	margin-top: 10px;
 	border-radius: 16px;
-	/* align-self: center; */
 	position: absolute;
 	top: 180px;
 	transition: opacity 250ms ease;
@@ -55,18 +50,13 @@
 	background: #ffffff;
 	display: flex;
 	flex-direction: column;
-	/* margin: 40px auto; */
-	/* justify-items: left; */
-	/* margin: 0 auto; */
 	align-items: center;
 	gap: 30px;
 }
 
 .popup__form-title {
-	/* background: #ffffff; */
 	color: #000000;
 	text-align: left;
-	/* margin-top: 34px; */
 	margin-left: 35px;
 }
 

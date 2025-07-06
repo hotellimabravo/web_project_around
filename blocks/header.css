@@ -2,7 +2,7 @@
 	max-width: 1024px;
 	height: 74px;
 	margin-top: 45px;
-	border-bottom: 1px solid #E6E6E6;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .header__logo {
