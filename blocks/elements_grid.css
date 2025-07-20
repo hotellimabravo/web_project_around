@@ -13,6 +13,8 @@
 
 .card__img {
 	border-radius: 16px 16px 0 0;
+	width: 282px;
+	height: 282px;
 }
 
 .card__text-container {
@@ -20,6 +22,7 @@
 	display: flex;
 	align-items: center;
 	margin: 25px 0 31px;
+	overflow: hidden;
 }
 
 .card__text {
