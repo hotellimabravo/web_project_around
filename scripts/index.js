@@ -1,13 +1,21 @@
 const formElement = document.querySelector('.popup__form');
 
 const editButton = document.querySelector('.profile__edit-button');
+
 const popup = document.querySelector('.popup');
+
 const closeButton = document.querySelector('.popup__close-button');
 const addPopupCloseBtn = document.querySelector('.add-popup__close-button');
+
 const nameInput = document.querySelector('#name');
 const descriptionInput = document.querySelector('#description');
+
 const profileName = document.querySelector('.profile__info-name');
 const profileDescription = document.querySelector('.profile__info-title');
+
+const addFormElement = document.querySelector('.add-popup__form');
+const imageNameInput = document.querySelector('#add-name');
+const imageLinkInput = document.querySelector('#add-link');
 
 //  Cria galeria do feed
 const galeria = document.querySelector('.element');
@@ -82,7 +90,7 @@ const initialCards = [
 	},
 ];
 
-function cardCreate(card) {
+function cardCreateElement(card) {
 	// cria a div do cartão do feed
 	const div = document.createElement('div');
 	div.classList.add('card');
@@ -115,13 +123,39 @@ function cardCreate(card) {
 
 	div.append(cardImg, txtContainer);
 
-	return galeria.appendChild(div);
+	return div;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
 	initialCards.forEach((card) => {
-		cardCreate(card);
+		const cardElement = cardCreateElement(card);
+		// cardCreate(card);
+		galeria.appendChild(cardElement);
 	});
 });
 
+<<<<<<< HEAD
 // função que adiciona imagens ao feed que já possui 6 imagens
+=======
+function handleAddFormSubmit(evt) {
+	evt.preventDefault();
+
+	const newCard = {
+		name: imageNameInput.value.trim(),
+		link: imageLinkInput.value.trim(),
+	};
+
+	// sem validação
+	// cardCreate(newCard)
+	const cardElement = cardCreateElement(newCard);
+	galeria.prepend(cardElement);
+
+	closeCardPopup();
+
+	imageNameInput.value = '';
+	imageLinkInput.value = '';
+	console.log(imageLinkInput);
+}
+
+addFormElement.addEventListener('submit', handleAddFormSubmit);
+>>>>>>> feat/add-img-feature
