@@ -114,8 +114,18 @@ function cardCreateElement(card) {
 	// cria o coração de like
 	const likeBtn = document.createElement('img');
 	likeBtn.classList.add('card__like-button');
-	likeBtn.src = './images/heart.png';
+	likeBtn.src = './images/heartSVG.svg';
 	likeBtn.alt = 'Imagem de um coração para curtidas!';
+
+	likeBtn.addEventListener('click', () => {
+		const isLiked = likeBtn.classList.toggle('liked');
+
+		if (isLiked) {
+			likeBtn.src = './images/heartSVGlike.svg';
+		} else {
+			likeBtn.src = './images/heartSVG.svg';
+		}
+	});
 
 	// criar o botão de excluir foto
 	const delBtn = document.createElement('img');

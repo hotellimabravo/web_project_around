@@ -46,6 +46,11 @@
 	opacity: 50%;
 }
 
+.card__like-button.liked {
+	transform: scale(1.1);
+	transition: transform 0.2s;
+}
+
 .card__delete-button {
 	position: absolute;
 	top: 10px;
