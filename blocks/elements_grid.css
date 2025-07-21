@@ -9,6 +9,7 @@
 	height: 361px;
 	background: #ffffff;
 	border-radius: 16px;
+	position: relative;
 }
 
 .card__img {
@@ -43,6 +44,20 @@
 
 .card__like-button:hover {
 	opacity: 50%;
+}
+
+.card__delete-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: none;
+	cursor: pointer;
+	font-size: 18px;
+	padding: 5px;
+}
+
+.card__delete-button:hover {
+	opacity: 80%;
 }
 
 @media screen and (max-width: 1024px) {

@@ -118,10 +118,16 @@ function cardCreateElement(card) {
 	likeBtn.alt = 'Imagem de um coração para curtidas!';
 
 	// criar o botão de excluir foto
+	const delBtn = document.createElement('img');
+	delBtn.classList.add('card__delete-button');
+	delBtn.src = './images/trash.png';
+	delBtn.addEventListener('click', () => {
+		div.remove();
+	});
 
 	txtContainer.append(cardTxt, likeBtn);
 
-	div.append(cardImg, txtContainer);
+	div.append(cardImg, txtContainer, delBtn);
 
 	return div;
 }
@@ -144,7 +150,7 @@ function handleAddFormSubmit(evt) {
 	};
 
 	// sem validação
-	// cardCreate(newCard)
+
 	const cardElement = cardCreateElement(newCard);
 	galeria.prepend(cardElement);
 
@@ -152,7 +158,18 @@ function handleAddFormSubmit(evt) {
 
 	imageNameInput.value = '';
 	imageLinkInput.value = '';
-	console.log(imageLinkInput);
 }
 
 addFormElement.addEventListener('submit', handleAddFormSubmit);
+
+//
+//
+//
+//
+// BOTÃO DE CURTIR FUNCIONAL - QUANDO O USUAÁRIO CLICA NO BOTÃO DE CORAÇÃO ELE MUDA DE COR
+//
+//
+// BOTÃO DE EXCLUIR FOTO - FUNCIONAL, QUANDO O USUÁRIO CLICA A IMAGEM É EXCLUÍDA
+//
+//
+// POP QUE ABRE E EXIBE A IMAGEM GRANDE NO CENTRO DA TELA
