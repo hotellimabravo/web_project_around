@@ -134,9 +134,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-<<<<<<< HEAD
 // função que adiciona imagens ao feed que já possui 6 imagens
-=======
 function handleAddFormSubmit(evt) {
 	evt.preventDefault();
 
@@ -158,4 +156,3 @@ function handleAddFormSubmit(evt) {
 }
 
 addFormElement.addEventListener('submit', handleAddFormSubmit);
->>>>>>> feat/add-img-feature
