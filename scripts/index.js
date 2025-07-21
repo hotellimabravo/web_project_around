@@ -123,3 +123,5 @@ window.addEventListener('DOMContentLoaded', () => {
 		cardCreate(card);
 	});
 });
+
+// função que adiciona imagens ao feed que já possui 6 imagens
