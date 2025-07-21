@@ -17,6 +17,12 @@ const addFormElement = document.querySelector('.add-popup__form');
 const imageNameInput = document.querySelector('#add-name');
 const imageLinkInput = document.querySelector('#add-link');
 
+// popup imagens
+const imagePopup = document.querySelector('.image-popup');
+const imagePopupImg = document.querySelector('.image-popup__img');
+const imagePopupTitle = document.querySelector('.image-popup__title');
+const imagePopupClose = document.querySelector('.image-popup__close');
+
 //  Cria galeria do feed
 const galeria = document.querySelector('.element');
 
@@ -135,6 +141,10 @@ function cardCreateElement(card) {
 		div.remove();
 	});
 
+	cardImg.addEventListener('click', () => {
+		openImagePopup(card.link, card.name);
+	});
+
 	txtContainer.append(cardTxt, likeBtn);
 
 	div.append(cardImg, txtContainer, delBtn);
@@ -183,3 +193,17 @@ addFormElement.addEventListener('submit', handleAddFormSubmit);
 //
 //
 // POP QUE ABRE E EXIBE A IMAGEM GRANDE NO CENTRO DA TELA
+
+//
+//
+// pop up imagens
+function openImagePopup(src, title) {
+	imagePopupImg.src = src;
+	imagePopupImg.alt = title;
+	imagePopupTitle.textContent = title;
+	imagePopup.classList.add('image-popup_opened');
+}
+
+imagePopupClose.addEventListener('click', () => {
+	imagePopup.classList.remove('image-popup_opened');
+});

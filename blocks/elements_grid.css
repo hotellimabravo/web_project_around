@@ -16,6 +16,7 @@
 	border-radius: 16px 16px 0 0;
 	width: 282px;
 	height: 282px;
+	cursor: pointer;
 }
 
 .card__text-container {
