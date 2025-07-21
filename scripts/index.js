@@ -1,13 +1,21 @@
 const formElement = document.querySelector('.popup__form');
 
 const editButton = document.querySelector('.profile__edit-button');
+
 const popup = document.querySelector('.popup');
+
 const closeButton = document.querySelector('.popup__close-button');
 const addPopupCloseBtn = document.querySelector('.add-popup__close-button');
+
 const nameInput = document.querySelector('#name');
 const descriptionInput = document.querySelector('#description');
+
 const profileName = document.querySelector('.profile__info-name');
 const profileDescription = document.querySelector('.profile__info-title');
+
+const addFormElement = document.querySelector('.add-popup__form');
+const imageNameInput = document.querySelector('#add-name');
+const imageLinkInput = document.querySelector('#add-link');
 
 //  Cria galeria do feed
 const galeria = document.querySelector('.element');
@@ -111,9 +119,9 @@ function cardCreate(card) {
 
 	// criar o botão de excluir foto
 
-	txtContainer.append(cardTxt, likeBtn);
+	txtContainer.prepend(cardTxt, likeBtn);
 
-	div.append(cardImg, txtContainer);
+	div.prepend(cardImg, txtContainer);
 
 	return galeria.appendChild(div);
 }
@@ -123,3 +131,23 @@ window.addEventListener('DOMContentLoaded', () => {
 		cardCreate(card);
 	});
 });
+
+function handleAddFormSubmit(evt) {
+	evt.preventDefault();
+
+	const newCard = {
+		name: imageNameInput.value.trim(),
+		link: imageLinkInput.value.trim(),
+	};
+
+	// sem validação
+	cardCreate(newCard);
+
+	closeCardPopup();
+
+	imageNameInput.value = '';
+	imageLinkInput.value = '';
+	console.log(imageLinkInput);
+}
+
+addFormElement.addEventListener('submit', handleAddFormSubmit);
