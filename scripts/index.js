@@ -90,7 +90,7 @@ const initialCards = [
 	},
 ];
 
-function cardCreate(card) {
+function cardCreateElement(card) {
 	// cria a div do cartão do feed
 	const div = document.createElement('div');
 	div.classList.add('card');
@@ -119,16 +119,18 @@ function cardCreate(card) {
 
 	// criar o botão de excluir foto
 
-	txtContainer.prepend(cardTxt, likeBtn);
+	txtContainer.append(cardTxt, likeBtn);
 
-	div.prepend(cardImg, txtContainer);
+	div.append(cardImg, txtContainer);
 
-	return galeria.appendChild(div);
+	return div;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
 	initialCards.forEach((card) => {
-		cardCreate(card);
+		const cardElement = cardCreateElement(card);
+		// cardCreate(card);
+		galeria.appendChild(cardElement);
 	});
 });
 
@@ -141,7 +143,9 @@ function handleAddFormSubmit(evt) {
 	};
 
 	// sem validação
-	cardCreate(newCard);
+	// cardCreate(newCard)
+	const cardElement = cardCreateElement(newCard);
+	galeria.prepend(cardElement);
 
 	closeCardPopup();
 
