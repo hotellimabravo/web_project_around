@@ -67,57 +67,46 @@ const initialCards = [
 	},
 ];
 
-//
-//
-//
-// CARREGANDO 6 IMAGENS
-//
-//
-//
-// função que cria DIV
-//
-//
+const galeria = document.querySelector('.element');
+
+function cardCreate(card) {
+	// cria a div do cartão do feed
+	const div = document.createElement('div');
+	div.classList.add('card');
+
+	// cria a imagem do card
+	const cardImg = document.createElement('img');
+	cardImg.classList.add('card__img');
+	cardImg.src = card.link;
+	cardImg.alt = card.name;
+
+	// cria o card container
+	const txtContainer = document.createElement('div');
+	txtContainer.classList.add('card__text-container');
+
+	// cria o card__text
+	const cardTxt = document.createElement('h2');
+	cardTxt.classList.add('card__text');
+	cardTxt.textContent =
+		card.name.length > 16 ? card.name.slice(0, 11) + '...' : card.name;
+
+	// cria o coração de like
+	const likeBtn = document.createElement('img');
+	likeBtn.classList.add('card__like-button');
+	likeBtn.src = './images/heart.png';
+	likeBtn.alt = 'Imagem de um coração para curtidas!';
+
+	// criar o botão de excluir foto
+
+	txtContainer.append(cardTxt, likeBtn);
+
+	div.append(cardImg, txtContainer);
+
+	return galeria.appendChild(div);
+}
+
 window.addEventListener('DOMContentLoaded', () => {
-	const galeria = document.querySelector('.element');
-
 	initialCards.forEach((card) => {
-		// console.log(card.link);
-		const div = document.createElement('div');
-		div.classList.add('card');
-
-		div.innerHTML = `
-								<img
-									src="${card.link}"
-									alt="${card.name}"
-									class="card__img" />
-								<div class="card__text-container">
-									<h2 class="card__text">${
-										card.name.length > 20
-											? card.name.slice(0, 15) + '...'
-											: card.name
-									}</h2>
-									<img
-										src="./images/heart.png"
-										alt="Imagem de um coração para curtidas"
-										class="card__like-button" />
-								</div>
-
-		`;
-		galeria.appendChild(div);
+		cardCreate(card);
 	});
 });
-
-//
-//
-// Função que chama os dados da variavel initialCards
-//
-//
-// function lendoValores(cards) {
-// 	cards.forEach((card) => {
-// 		console.log(`Name: ${card.name} | Link: ${card.link}`);
-// 	});
-// }
-// lendoValores(initialCards);
-//
-//
-//
