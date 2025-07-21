@@ -3,38 +3,53 @@ const formElement = document.querySelector('.popup__form');
 const editButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
 const closeButton = document.querySelector('.popup__close-button');
-
+const addPopupCloseBtn = document.querySelector('.add-popup__close-button');
 const nameInput = document.querySelector('#name');
 const descriptionInput = document.querySelector('#description');
-
 const profileName = document.querySelector('.profile__info-name');
 const profileDescription = document.querySelector('.profile__info-title');
 
+//  Cria galeria do feed
+const galeria = document.querySelector('.element');
+
+// abre o popup e cria função do botão
+const addPopup = document.querySelector('.add-popup');
+const addBtn = document.querySelector('.profile__add-button');
+
+//  função que abre o add card popup
+function openCardPopup() {
+	addPopup.classList.add('add-popup_opened');
+}
+addBtn.addEventListener('click', openCardPopup);
+
+// função que fecha o add card popup
+function closeCardPopup() {
+	addPopup.classList.remove('add-popup_opened');
+}
+addPopupCloseBtn.addEventListener('click', closeCardPopup);
+
+//  função que abre o profile popup
 function openPopup() {
 	popup.classList.add('popup_opened');
 	nameInput.value = profileName.textContent;
 	descriptionInput.value = profileDescription.textContent;
 }
 
+//  função que fecha o profile popup
 function closePopup() {
 	popup.classList.remove('popup_opened');
 }
-
 editButton.addEventListener('click', openPopup);
-
 closeButton.addEventListener('click', closePopup);
 
+// função que envia as infs digitadas no profile popup
 function handleProfileFormSubmit(evt) {
 	evt.preventDefault();
-
 	profileName.textContent = nameInput.value;
 	profileDescription.textContent = descriptionInput.value;
-
 	closePopup();
 }
-
 formElement.addEventListener('submit', handleProfileFormSubmit);
-
 //
 //
 // CARREGANDO 6 IMAGENS NO FEED
@@ -66,8 +81,6 @@ const initialCards = [
 		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg',
 	},
 ];
-
-const galeria = document.querySelector('.element');
 
 function cardCreate(card) {
 	// cria a div do cartão do feed

@@ -38,10 +38,48 @@
 						<h1 class="profile__info-name">Jacques Cousteau</h1>
 						<p class="profile__info-title">Explorador</p>
 					</div>
-
 					<button class="profile__edit-button edit-button"></button>
-
 					<button class="profile__add-button"></button>
+					<div action="" class="add-popup">
+						<div class="add-popup__container">
+							<button class="add-popup__close-button">
+								<img
+									src="./images/Close-Icon.png"
+									alt="Imagem de sinal de X para usar como botão fechar"
+									class="add-popup__close-button-img" />
+							</button>
+							<form class="add-popup__form">
+								<h2 class="add-popup__form-title">Novo Local</h2>
+								<input
+									type="text"
+									id="add-name"
+									name="novo local"
+									class="add-popup__input"
+									placeholder="Títul"
+									required
+									minlength="2"
+									maxlength="40" />
+								<input
+									type="text"
+									id="addCardlink"
+									name="addCardlink"
+									class="add-popup__input"
+									placeholder="Link da Imagem"
+									required
+									minlength="2"
+									maxlength="40" />
+
+								<button
+									type="submit"
+									name="salvar"
+									value="submit"
+									id="add-submit"
+									class="add-popup__form-save">
+									Criar
+								</button>
+							</form>
+						</div>
+					</div>
 				</section>
 
 				<section class="element"></section>
