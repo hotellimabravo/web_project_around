@@ -91,6 +91,13 @@
 	font-size: 18px;
 	line-height: 100%;
 	cursor: pointer;
+	border: none;
+}
+
+.popup__button_disabled {
+	background: rgba(0, 0, 0, 0.2);
+	color: rgb(255, 255, 255);
+	border: none;
 }
 
 .add-popup__form-save:hover {

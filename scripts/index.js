@@ -1,4 +1,6 @@
-const formElement = document.querySelector('.popup__form');
+import { enableValidation, resetValidation } from './validate.js';
+
+const formElement = document.querySelector('#popup__form');
 
 const editButton = document.querySelector('.profile__edit-button');
 
@@ -33,6 +35,18 @@ const addBtn = document.querySelector('.profile__add-button');
 //  função que abre o add card popup
 function openCardPopup() {
 	addPopup.classList.add('add-popup_opened');
+
+	imageNameInput.value = '';
+	imageLinkInput.value = '';
+
+	// limpa erros e reseta botão
+	resetValidation(addPopup.querySelector('.popup__form'), {
+		inputSelector: '.popup__input',
+		submitButtonSelector: '.popup__button',
+		inactiveButtonClass: 'popup__button_disabled',
+		inputErrorClass: 'popup__input_type_error',
+		errorClass: 'popup__error_visible',
+	});
 }
 addBtn.addEventListener('click', openCardPopup);
 
@@ -47,12 +61,22 @@ function openPopup() {
 	popup.classList.add('popup_opened');
 	nameInput.value = profileName.textContent;
 	descriptionInput.value = profileDescription.textContent;
+
+	// limpa erros e reseta botão
+	resetValidation(popup.querySelector('.popup__form'), {
+		inputSelector: '.popup__input',
+		submitButtonSelector: '.popup__button',
+		inactiveButtonClass: 'popup__button_disabled',
+		inputErrorClass: 'popup__input_type_error',
+		errorClass: 'popup__error_visible',
+	});
 }
 
 //  função que fecha o profile popup
 function closePopup() {
 	popup.classList.remove('popup_opened');
 }
+
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
 
@@ -182,20 +206,6 @@ function handleAddFormSubmit(evt) {
 
 addFormElement.addEventListener('submit', handleAddFormSubmit);
 
-//
-//
-//
-//
-// BOTÃO DE CURTIR FUNCIONAL - QUANDO O USUAÁRIO CLICA NO BOTÃO DE CORAÇÃO ELE MUDA DE COR
-//
-//
-// BOTÃO DE EXCLUIR FOTO - FUNCIONAL, QUANDO O USUÁRIO CLICA A IMAGEM É EXCLUÍDA
-//
-//
-// POP QUE ABRE E EXIBE A IMAGEM GRANDE NO CENTRO DA TELA
-
-//
-//
 // pop up imagens
 function openImagePopup(src, title) {
 	imagePopupImg.src = src;
@@ -206,4 +216,15 @@ function openImagePopup(src, title) {
 
 imagePopupClose.addEventListener('click', () => {
 	imagePopup.classList.remove('image-popup_opened');
+});
+
+// Habilita a validação do formulário
+
+enableValidation({
+	formSelector: '.popup__form',
+	inputSelector: '.popup__input',
+	submitButtonSelector: '.popup__button',
+	inactiveButtonClass: 'popup__button_disabled',
+	inputErrorClass: 'popup__input_type_error',
+	errorClass: 'popup__error_visible',
 });

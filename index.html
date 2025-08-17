@@ -48,32 +48,40 @@
 									alt="Imagem de sinal de X para usar como botão fechar"
 									class="add-popup__close-button-img" />
 							</button>
-							<form class="add-popup__form">
+							<form class="add-popup__form popup__form">
 								<h2 class="add-popup__form-title">Novo Local</h2>
-								<input
-									type="text"
-									id="add-name"
-									name="novo local"
-									class="add-popup__input"
-									placeholder="Título"
-									required
-									minlength="2"
-									maxlength="30" />
-								<input
-									type="url"
-									id="add-link"
-									name="addCardlink"
-									class="add-popup__input"
-									placeholder="Link da Imagem"
-									required
-									minlength="2" />
-
+								<div class="popup__field">
+									<input
+										type="text"
+										id="add-name"
+										name="novo local"
+										class="add-popup__input popup__input"
+										placeholder="Título"
+										required
+										minlength="2"
+										maxlength="30" />
+									<span
+										class="popup__input_type_error"
+										id="add-name-error"></span>
+								</div>
+								<div class="popup__field">
+									<input
+										type="url"
+										id="add-link"
+										name="addCardlink"
+										class="add-popup__input popup__input"
+										placeholder="Link da Imagem"
+										required />
+									<span
+										class="popup__input_type_error"
+										id="add-link-error"></span>
+								</div>
 								<button
 									type="submit"
 									name="salvar"
 									value="submit"
 									id="add-submit"
-									class="add-popup__form-save">
+									class="add-popup__form-save popup__button">
 									Criar
 								</button>
 							</form>
@@ -91,33 +99,40 @@
 								alt="Imagem de sinal de X para usar como botão fechar"
 								class="popup__close-button-img" />
 						</button>
-						<form class="popup__form">
+						<form id="popup__form" class="popup__form">
 							<h2 class="popup__form-title">Editar Perfil</h2>
-							<input
-								type="text"
-								id="name"
-								name="name"
-								class="popup__input"
-								placeholder="Nome"
-								required
-								minlength="2"
-								maxlength="40" />
-							<input
-								type="text"
-								id="description"
-								name="description"
-								class="popup__input"
-								placeholder="Descrição"
-								required
-								minlength="2"
-								maxlength="200" />
-
+							<div class="popup__field">
+								<input
+									type="text"
+									id="name"
+									name="name"
+									class="popup__input"
+									placeholder="Nome"
+									required
+									minlength="2"
+									maxlength="40" />
+								<span class="popup__input_type_error" id="name-error"></span>
+							</div>
+							<div class="popup__field">
+								<input
+									type="text"
+									id="description"
+									name="description"
+									class="popup__input"
+									placeholder="Descrição"
+									required
+									minlength="2"
+									maxlength="200" />
+								<span
+									class="popup__input_type_error"
+									id="description-error"></span>
+							</div>
 							<button
 								type="submit"
 								name="salvar"
 								value="submit"
 								id="submit"
-								class="popup__form-save">
+								class="popup__form-save popup__button">
 								Salvar
 							</button>
 						</form>
@@ -135,7 +150,6 @@
 				<p class="image-popup__title"></p>
 			</div>
 		</div>
-		<script src="./scripts/index.js"></script>
-		<script src="./scripts/validate.js"></script>
+		<script type="module" src="./scripts/index.js"></script>
 	</body>
 </html>
