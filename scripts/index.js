@@ -228,3 +228,16 @@ enableValidation({
 	inputErrorClass: 'popup__input_type_error',
 	errorClass: 'popup__error_visible',
 });
+
+// Função fechar popups com o ESCAPE
+function handleEscClose(evt) {
+	if (popup.classList.contains('popup_opened')) {
+		closePopup();
+	}
+
+	if (addPopup.classList.contains('add-popup_opened')) {
+		closeCardPopup();
+	}
+}
+
+document.addEventListener('keydown', handleEscClose);
