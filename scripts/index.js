@@ -238,6 +238,19 @@ function handleEscClose(evt) {
 	if (addPopup.classList.contains('add-popup_opened')) {
 		closeCardPopup();
 	}
+
+	if (imagePopup.classList.contains('image-popup_opened')) {
+		imagePopup.classList.remove('image-popup_opened'); // função que fecha a imagem com ESC tambem
+	}
 }
 
 document.addEventListener('keydown', handleEscClose);
+
+//  função de click fora da imagem fecha popup de imagem
+function clickOutCloseImagePopup(evt) {
+	if (evt.target === imagePopup) {
+		imagePopup.classList.remove('image-popup_opened');
+	}
+}
+
+document.addEventListener('click', clickOutCloseImagePopup);
