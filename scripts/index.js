@@ -232,6 +232,7 @@ enableValidation({
 // Função fechar popups com o ESCAPE
 function handleEscClose(evt) {
 	if (evt.key === 'Escape') {
+		// lógica do script alterada realmente qq tecla fechava os popups n testei corretamente a funcionalidade aqui rs mas ta na mao a correção. obg.
 		if (popup.classList.contains('popup_opened')) {
 			closePopup();
 		}
