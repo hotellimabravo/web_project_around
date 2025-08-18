@@ -231,16 +231,18 @@ enableValidation({
 
 // Função fechar popups com o ESCAPE
 function handleEscClose(evt) {
-	if (popup.classList.contains('popup_opened')) {
-		closePopup();
-	}
+	if (evt.key === 'Escape') {
+		if (popup.classList.contains('popup_opened')) {
+			closePopup();
+		}
 
-	if (addPopup.classList.contains('add-popup_opened')) {
-		closeCardPopup();
-	}
+		if (addPopup.classList.contains('add-popup_opened')) {
+			closeCardPopup();
+		}
 
-	if (imagePopup.classList.contains('image-popup_opened')) {
-		imagePopup.classList.remove('image-popup_opened'); // função que fecha a imagem com ESC tambem
+		if (imagePopup.classList.contains('image-popup_opened')) {
+			imagePopup.classList.remove('image-popup_opened'); // função que fecha a imagem com ESC tambem
+		}
 	}
 }
 
