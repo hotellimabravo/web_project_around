@@ -28,18 +28,6 @@
 	box-sizing: border-box;
 }
 
-.add-popup__container {
-	background: #ffffff;
-	width: 430px;
-	height: 330px;
-	margin-top: 10px;
-	border-radius: 16px;
-	position: absolute;
-	top: 180px;
-	transition: opacity 250ms ease;
-	z-index: 1001;
-}
-
 .add-popup__close-button {
 	position: relative;
 	background: #000000;
