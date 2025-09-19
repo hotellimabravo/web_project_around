@@ -1,5 +1,6 @@
-import { enableValidation, resetValidation } from './validate.js';
+import { resetValidation } from './utils.js';
 import Card from './card.js';
+import FormValidator from './formvalidator.js';
 
 const formElement = document.querySelector('#popup__form');
 
@@ -35,7 +36,26 @@ function openCardPopup() {
 
 	imageNameInput.value = '';
 	imageLinkInput.value = '';
+	// Instancia a classe FormValidator para o formulário específico dentro do popup
+	const validationCard = new FormValidator(
+		addPopup.querySelector('.popup__form'),
+		{
+			formSelector: '.popup__form',
+			inputSelector: '.popup__input',
+			submitButtonSelector: '.popup__button',
+			inactiveButtonClass: 'popup__button_disabled',
+			inputErrorClass: 'popup__input_type_error',
+			errorClass: 'popup__error_visible',
+		},
+	);
 
+	// Ativa a validação para esse formulário específico
+	validationCard.enableValidation();
+}
+addBtn.addEventListener('click', openCardPopup);
+
+function closeCardPopup() {
+	addPopup.classList.remove('add-popup_opened');
 	resetValidation(addPopup.querySelector('.popup__form'), {
 		inputSelector: '.popup__input',
 		submitButtonSelector: '.popup__button',
@@ -44,11 +64,7 @@ function openCardPopup() {
 		errorClass: 'popup__error_visible',
 	});
 }
-addBtn.addEventListener('click', openCardPopup);
 
-function closeCardPopup() {
-	addPopup.classList.remove('add-popup_opened');
-}
 addPopupCloseBtn.addEventListener('click', closeCardPopup);
 
 function openPopup() {
@@ -56,13 +72,16 @@ function openPopup() {
 	nameInput.value = profileName.textContent;
 	descriptionInput.value = profileDescription.textContent;
 
-	resetValidation(popup.querySelector('.popup__form'), {
+	const validationProfile = new FormValidator(formElement, {
+		formSelector: '.popup__form',
 		inputSelector: '.popup__input',
 		submitButtonSelector: '.popup__button',
 		inactiveButtonClass: 'popup__button_disabled',
 		inputErrorClass: 'popup__input_type_error',
 		errorClass: 'popup__error_visible',
 	});
+
+	validationProfile.enableValidation();
 }
 
 function closePopup() {
@@ -156,14 +175,14 @@ function handleAddFormSubmit(evt) {
 
 addFormElement.addEventListener('submit', handleAddFormSubmit);
 
-enableValidation({
-	formSelector: '.popup__form',
-	inputSelector: '.popup__input',
-	submitButtonSelector: '.popup__button',
-	inactiveButtonClass: 'popup__button_disabled',
-	inputErrorClass: 'popup__input_type_error',
-	errorClass: 'popup__error_visible',
-});
+// const enableValidation = {
+// 	formSelector: '.popup__form',
+// 	inputSelector: '.popup__input',
+// 	submitButtonSelector: '.popup__button',
+// 	inactiveButtonClass: 'popup__button_disabled',
+// 	inputErrorClass: 'popup__input_type_error',
+// 	errorClass: 'popup__error_visible',
+// };
 
 function handleEscClose(evt) {
 	if (evt.key === 'Escape') {
