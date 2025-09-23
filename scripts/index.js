@@ -3,33 +3,50 @@ import Card from './card.js';
 import FormValidator from './formvalidator.js';
 
 const formElement = document.querySelector('#popup__form');
-
 const editButton = document.querySelector('.profile__edit-button');
-
 const popup = document.querySelector('.popup');
-
 const closeButton = document.querySelector('.popup__close-button');
 const addPopupCloseBtn = document.querySelector('.add-popup__close-button');
-
 const nameInput = document.querySelector('#name');
 const descriptionInput = document.querySelector('#description');
-
 const profileName = document.querySelector('.profile__info-name');
 const profileDescription = document.querySelector('.profile__info-title');
-
 const addFormElement = document.querySelector('.add-popup__form');
 const imageNameInput = document.querySelector('#add-name');
 const imageLinkInput = document.querySelector('#add-link');
-
 const imagePopup = document.querySelector('.image-popup');
 const imagePopupImg = document.querySelector('.image-popup__img');
 const imagePopupTitle = document.querySelector('.image-popup__title');
 const imagePopupClose = document.querySelector('.image-popup__close');
-
 const galeria = document.querySelector('.element');
-
 const addPopup = document.querySelector('.add-popup');
 const addBtn = document.querySelector('.profile__add-button');
+const initialCards = [
+	{
+		name: 'Vale de Yosemite',
+		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg',
+	},
+	{
+		name: 'Lago Louise',
+		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg',
+	},
+	{
+		name: 'Montanhas Carecas',
+		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg',
+	},
+	{
+		name: 'Latemar',
+		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg',
+	},
+	{
+		name: 'Parque Nacional da Vanoise ',
+		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg',
+	},
+	{
+		name: 'Lago di Braies',
+		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg',
+	},
+];
 
 function openCardPopup() {
 	addPopup.classList.add('add-popup_opened');
@@ -99,33 +116,6 @@ function handleProfileFormSubmit(evt) {
 }
 formElement.addEventListener('submit', handleProfileFormSubmit);
 
-const initialCards = [
-	{
-		name: 'Vale de Yosemite',
-		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg',
-	},
-	{
-		name: 'Lago Louise',
-		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg',
-	},
-	{
-		name: 'Montanhas Carecas',
-		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg',
-	},
-	{
-		name: 'Latemar',
-		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg',
-	},
-	{
-		name: 'Parque Nacional da Vanoise ',
-		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg',
-	},
-	{
-		name: 'Lago di Braies',
-		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg',
-	},
-];
-
 window.addEventListener('DOMContentLoaded', () => {
 	const openImagePopup = (src, title) => {
 		imagePopupImg.src = src;
@@ -174,15 +164,6 @@ function handleAddFormSubmit(evt) {
 }
 
 addFormElement.addEventListener('submit', handleAddFormSubmit);
-
-// const enableValidation = {
-// 	formSelector: '.popup__form',
-// 	inputSelector: '.popup__input',
-// 	submitButtonSelector: '.popup__button',
-// 	inactiveButtonClass: 'popup__button_disabled',
-// 	inputErrorClass: 'popup__input_type_error',
-// 	errorClass: 'popup__error_visible',
-// };
 
 function handleEscClose(evt) {
 	if (evt.key === 'Escape') {

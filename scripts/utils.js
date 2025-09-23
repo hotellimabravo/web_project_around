@@ -1,5 +1,3 @@
-// utils.js
-
 export function resetValidation(form, obj) {
 	const inputList = Array.from(form.querySelectorAll(obj.inputSelector));
 	const submitButton = form.querySelector(obj.submitButtonSelector);
