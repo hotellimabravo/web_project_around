@@ -1,4 +1,4 @@
-import { resetValidation } from './utils.js';
+// import { resetValidation } from './utils.js';
 import Card from './card.js';
 import FormValidator from './formvalidator.js';
 
@@ -50,10 +50,8 @@ const initialCards = [
 
 function openCardPopup() {
 	addPopup.classList.add('add-popup_opened');
-
 	imageNameInput.value = '';
 	imageLinkInput.value = '';
-	// Instancia a classe FormValidator para o formulário específico dentro do popup
 	const validationCard = new FormValidator(
 		addPopup.querySelector('.popup__form'),
 		{
@@ -65,8 +63,6 @@ function openCardPopup() {
 			errorClass: 'popup__error_visible',
 		},
 	);
-
-	// Ativa a validação para esse formulário específico
 	validationCard.enableValidation();
 }
 addBtn.addEventListener('click', openCardPopup);
@@ -81,7 +77,6 @@ function closeCardPopup() {
 		errorClass: 'popup__error_visible',
 	});
 }
-
 addPopupCloseBtn.addEventListener('click', closeCardPopup);
 
 function openPopup() {
@@ -127,8 +122,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	initialCards.forEach((card) => {
 		const getCard = new Card(card.name, card.link, openImagePopup);
 		getCard.cardCreateElement();
-
-		// cardCreate(card);
 		galeria.appendChild(getCard.cardCreateElement());
 	});
 
@@ -139,26 +132,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function handleAddFormSubmit(evt) {
 	evt.preventDefault();
-
 	const openImagePopup = (src, title) => {
 		imagePopupImg.src = src;
 		imagePopupImg.alt = title;
 		imagePopupTitle.textContent = title;
 		imagePopup.classList.add('image-popup_opened');
 	};
-
 	const newCard = {
 		name: imageNameInput.value.trim(),
 		link: imageLinkInput.value.trim(),
 	};
-
 	const addCard = new Card(newCard.name, newCard.link, openImagePopup);
 	addCard.cardCreateElement();
-
 	galeria.prepend(addCard.cardCreateElement());
-
 	closeCardPopup();
-
 	imageNameInput.value = '';
 	imageLinkInput.value = '';
 }
@@ -170,17 +157,14 @@ function handleEscClose(evt) {
 		if (popup.classList.contains('popup_opened')) {
 			closePopup();
 		}
-
 		if (addPopup.classList.contains('add-popup_opened')) {
 			closeCardPopup();
 		}
-
 		if (imagePopup.classList.contains('image-popup_opened')) {
 			imagePopup.classList.remove('image-popup_opened');
 		}
 	}
 }
-
 document.addEventListener('keydown', handleEscClose);
 
 function clickOutCloseImagePopup(evt) {
@@ -188,5 +172,18 @@ function clickOutCloseImagePopup(evt) {
 		imagePopup.classList.remove('image-popup_opened');
 	}
 }
-
 document.addEventListener('click', clickOutCloseImagePopup);
+
+function resetValidation(form, obj) {
+	const inputList = Array.from(form.querySelectorAll(obj.inputSelector));
+	const submitButton = form.querySelector(obj.submitButtonSelector);
+
+	inputList.forEach((input) => {
+		const divError = form.querySelector(`#${input.id}-error`);
+		divError.classList.remove(obj.errorClass);
+		divError.textContent = '';
+	});
+
+	submitButton.classList.add(obj.inactiveButtonClass);
+	submitButton.disabled = true;
+}
