@@ -1,4 +1,3 @@
-// import { resetValidation } from './utils.js';
 import Card from './card.js';
 import FormValidator from './formvalidator.js';
 import {
@@ -62,7 +61,6 @@ const validationConfig = {
 	errorClass: 'popup__error_visible',
 };
 
-// Validações formulários
 const validationProfile = new FormValidator(formElement, validationConfig);
 validationProfile.enableValidation();
 

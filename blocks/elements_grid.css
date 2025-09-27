@@ -24,8 +24,6 @@
 	display: flex;
 	align-items: center;
 	margin: 25px 0 31px;
-	/* overflow: hidden; */
-	/* position: relative; */
 }
 
 .card__text {
