@@ -23,7 +23,7 @@
 	z-index: 1001;
 }
 
-.add-popup_opened {
+.popup_opened {
 	visibility: visible;
 	box-sizing: border-box;
 }
