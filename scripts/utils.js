@@ -83,26 +83,8 @@ function handleAddFormSubmit(evt) {
 	const addCard = new Card(newCard.name, newCard.link, openImagePopup);
 	addCard.cardCreateElement();
 	galeria.prepend(addCard.cardCreateElement());
-	closeCardPopup();
 	imageNameInput.value = '';
 	imageLinkInput.value = '';
-}
-
-function openCardPopup() {
-	addPopup.classList.add('add-popup_opened');
-	imageNameInput.value = '';
-	imageLinkInput.value = '';
-}
-
-function closeCardPopup() {
-	addPopup.classList.remove('add-popup_opened');
-	resetValidation(addPopup.querySelector('.popup__form'), {
-		inputSelector: '.popup__input',
-		submitButtonSelector: '.popup__button',
-		inactiveButtonClass: 'popup__button_disabled',
-		inputErrorClass: 'popup__input-error',
-		errorClass: 'popup__error_visible',
-	});
 }
 
 function resetValidation(form, obj) {
@@ -117,37 +99,19 @@ function resetValidation(form, obj) {
 	submitButton.disabled = true;
 }
 
-function openPopup() {
-	popup.classList.add('popup_opened');
-	nameInput.value = profileName.textContent;
-	descriptionInput.value = profileDescription.textContent;
-}
-
-function closePopup() {
-	popup.classList.remove('popup_opened');
-	resetValidation(popup.querySelector('.popup__form'), {
-		inputSelector: '.popup__input',
-		submitButtonSelector: '.popup__button',
-		inactiveButtonClass: 'popup__button_disabled',
-		inputErrorClass: 'popup__input-error',
-		errorClass: 'popup__error_visible',
-	});
-}
-
 function handleProfileFormSubmit(evt) {
 	evt.preventDefault();
 	profileName.textContent = nameInput.value;
 	profileDescription.textContent = descriptionInput.value;
-	closePopup();
 }
 
 function handleEscClose(evt) {
 	if (evt.key === 'Escape') {
 		if (popup.classList.contains('popup_opened')) {
-			closePopup();
+			popupProfile.close();
 		}
 		if (addPopup.classList.contains('add-popup_opened')) {
-			closeCardPopup();
+			popupAdd.close();
 		}
 		if (imagePopup.classList.contains('image-popup_opened')) {
 			imagePopup.classList.remove('image-popup_opened');
@@ -162,14 +126,10 @@ function clickOutCloseImagePopup(evt) {
 }
 
 export {
-	openCardPopup,
 	addPopup,
 	imageLinkInput,
 	imageNameInput,
-	closeCardPopup,
-	closePopup,
 	popup,
-	openPopup,
 	profileName,
 	nameInput,
 	profileDescription,
