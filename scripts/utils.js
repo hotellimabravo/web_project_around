@@ -1,14 +1,15 @@
 import Card from './card.js';
 import Section from './Section.js';
 
-const addPopup = document.querySelector('.add-popup');
-const imageNameInput = document.querySelector('#add-name');
-const imageLinkInput = document.querySelector('#add-link');
-const popup = document.querySelector('.popup');
-const nameInput = document.querySelector('#name');
-const profileName = document.querySelector('.profile__info-name');
-const descriptionInput = document.querySelector('#description');
-const profileDescription = document.querySelector('.profile__info-title');
+export const addPopup = document.querySelector('.add-popup');
+export const imageNameInput = document.querySelector('#add-name');
+export const imageLinkInput = document.querySelector('#add-link');
+export const profileName = document.querySelector('.profile__info-name');
+export const nameInput = document.querySelector('#name');
+export const profileDescription = document.querySelector(
+	'.profile__info-title',
+);
+export const descriptionInput = document.querySelector('#description');
 
 const initialCards = [
 	{
@@ -35,6 +36,10 @@ const initialCards = [
 		name: 'Lago di Braies',
 		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg',
 	},
+	{
+		name: 'Capacete Top',
+		link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH0fvNmYp_L1BuZi-ShsKBSpRuuwB8N9nQYw&s',
+	},
 ];
 
 let handleCardClick = null;
@@ -52,35 +57,4 @@ const renderer = (card) => {
 
 const section = new Section({ items: initialCards, renderer }, '.element');
 
-export function handleAddFormSubmit(evt) {
-	evt.preventDefault();
-	if (!handleCardClick) return;
-	const newCard = {
-		name: imageNameInput.value.trim(),
-		link: imageLinkInput.value.trim(),
-	};
-	const cardInstance = new Card(newCard.name, newCard.link, handleCardClick);
-	const cardElement = cardInstance.cardCreateElement();
-	section.addItem(cardElement);
-	imageNameInput.value = '';
-	imageLinkInput.value = '';
-}
-
-export function handleProfileFormSubmit(evt) {
-	evt.preventDefault();
-	profileName.textContent = nameInput.value;
-	profileDescription.textContent = descriptionInput.value;
-}
-
-export {
-	addPopup,
-	imageLinkInput,
-	imageNameInput,
-	popup,
-	profileName,
-	nameInput,
-	profileDescription,
-	descriptionInput,
-	initialCards,
-	section,
-};
+export { section, initialCards };

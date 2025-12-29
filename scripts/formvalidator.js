@@ -1,6 +1,6 @@
 export default class FormValidator {
 	constructor(formElement, obj) {
-		this._formElement = formElement; // Passa o formElement diretamente
+		this._formElement = formElement;
 		this._inputSelector = obj.inputSelector;
 		this._submitButtonSelector = obj.submitButtonSelector;
 		this._inputErrorClass = obj.inputErrorClass;

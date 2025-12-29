@@ -2,17 +2,13 @@ import Card from './card.js';
 import FormValidator from './formvalidator.js';
 import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
+import PopupWithForm from './PopupWithForm.js';
 import {
 	addPopup,
-	imageLinkInput,
-	imageNameInput,
-	popup,
 	profileName,
 	nameInput,
 	profileDescription,
 	descriptionInput,
-	handleProfileFormSubmit,
-	handleAddFormSubmit,
 	setHandleCardClick,
 	section,
 } from './utils.js';
@@ -22,13 +18,8 @@ const editButton = document.querySelector('.profile__edit-button');
 const addFormElement = document.querySelector('.add-popup__form');
 const addBtn = document.querySelector('.profile__add-button');
 
-const popupProfile = new Popup('.popup');
-const popupAdd = new Popup('.add-popup');
 const imagePopup = new PopupWithImage('.image-popup');
-
 imagePopup.setEventListeners();
-popupProfile.setEventListeners();
-popupAdd.setEventListeners();
 
 const handleCardClick = (link, name) => {
 	imagePopup.open(link, name);
@@ -36,6 +27,25 @@ const handleCardClick = (link, name) => {
 
 setHandleCardClick(handleCardClick);
 section.render();
+
+const popupProfile = new PopupWithForm('.popup', (formData) => {
+	profileName.textContent = formData.name;
+	profileDescription.textContent = formData.description;
+	popupProfile.close();
+});
+
+const popupAdd = new PopupWithForm('.add-popup', (formData) => {
+	const name = formData['novo local'];
+	const link = formData['addCardlink'];
+	const cardInstance = new Card(name, link, handleCardClick);
+	const cardElement = cardInstance.cardCreateElement();
+
+	section.addItem(cardElement);
+	popupAdd.close();
+});
+
+popupProfile.setEventListeners();
+popupAdd.setEventListeners();
 
 const validationConfig = {
 	formSelector: '.popup__form',
@@ -57,20 +67,14 @@ validationCard.enableValidation();
 
 editButton.addEventListener('click', () => {
 	popupProfile.open();
-	nameInput.value = profileName.textContent;
-	descriptionInput.value = profileDescription.textContent;
+	const currentData = {
+		name: profileName.textContent,
+		description: profileDescription.textContent,
+	};
+	nameInput.value = currentData.name;
+	descriptionInput.value = currentData.description;
 });
 
 addBtn.addEventListener('click', () => {
 	popupAdd.open();
-});
-
-formElement.addEventListener('submit', (evt) => {
-	handleProfileFormSubmit(evt);
-	popupProfile.close();
-});
-
-addFormElement.addEventListener('submit', (evt) => {
-	handleAddFormSubmit(evt);
-	popupAdd.close();
 });
