@@ -1,35 +1,41 @@
 import Card from './card.js';
 import FormValidator from './formvalidator.js';
 import Popup from './Popup.js';
+import PopupWithImage from './PopupWithImage.js';
 import {
-	// openCardPopup,
 	addPopup,
 	imageLinkInput,
 	imageNameInput,
-	// closeCardPopup,
-	// closePopup,
 	popup,
-	// openPopup,
 	profileName,
 	nameInput,
 	profileDescription,
 	descriptionInput,
 	handleProfileFormSubmit,
-	imagePopup,
 	handleAddFormSubmit,
-	handleEscClose,
-	// clickOutCloseImagePopup,
+	setHandleCardClick,
+	section,
 } from './utils.js';
 
 const formElement = document.querySelector('#popup__form');
 const editButton = document.querySelector('.profile__edit-button');
-const closeButton = document.querySelector('.popup__close-button');
-const addPopupCloseBtn = document.querySelector('.add-popup__close-button');
 const addFormElement = document.querySelector('.add-popup__form');
 const addBtn = document.querySelector('.profile__add-button');
 
 const popupProfile = new Popup('.popup');
 const popupAdd = new Popup('.add-popup');
+const imagePopup = new PopupWithImage('.image-popup');
+
+imagePopup.setEventListeners();
+popupProfile.setEventListeners();
+popupAdd.setEventListeners();
+
+const handleCardClick = (link, name) => {
+	imagePopup.open(link, name);
+};
+
+setHandleCardClick(handleCardClick);
+section.render();
 
 const validationConfig = {
 	formSelector: '.popup__form',
@@ -47,24 +53,18 @@ const validationCard = new FormValidator(
 	addPopup.querySelector('.popup__form'),
 	validationConfig,
 );
-
 validationCard.enableValidation();
 
-addBtn.addEventListener('click', () => {
-	popupAdd.open();
+editButton.addEventListener('click', () => {
+	popupProfile.open();
 	nameInput.value = profileName.textContent;
 	descriptionInput.value = profileDescription.textContent;
 });
 
-// addPopupCloseBtn.addEventListener('click', closeCardPopup);
-editButton.addEventListener('click', () => {
-	popupProfile.open();
+addBtn.addEventListener('click', () => {
+	popupAdd.open();
 });
 
-popupProfile.setEventListeners();
-popupAdd.setEventListeners();
-
-// closeButton.addEventListener('click', closePopup);
 formElement.addEventListener('submit', (evt) => {
 	handleProfileFormSubmit(evt);
 	popupProfile.close();
@@ -73,10 +73,4 @@ formElement.addEventListener('submit', (evt) => {
 addFormElement.addEventListener('submit', (evt) => {
 	handleAddFormSubmit(evt);
 	popupAdd.close();
-});
-document.addEventListener('keydown', handleEscClose);
-document.addEventListener('click', (evt) => {
-	if (evt.target === imagePopup) {
-		imagePopup.classList.remove('image-popup_opened');
-	}
 });

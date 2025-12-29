@@ -9,11 +9,6 @@ const nameInput = document.querySelector('#name');
 const profileName = document.querySelector('.profile__info-name');
 const descriptionInput = document.querySelector('#description');
 const profileDescription = document.querySelector('.profile__info-title');
-const galeria = document.querySelector('.element');
-const imagePopupClose = document.querySelector('.image-popup__close');
-const imagePopup = document.querySelector('.image-popup');
-const imagePopupImg = document.querySelector('.image-popup__img');
-const imagePopupTitle = document.querySelector('.image-popup__title');
 
 const initialCards = [
 	{
@@ -33,7 +28,7 @@ const initialCards = [
 		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg',
 	},
 	{
-		name: 'Parque Nacional da Vanoise ',
+		name: 'Parque Nacional da Vanoise',
 		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg',
 	},
 	{
@@ -42,87 +37,39 @@ const initialCards = [
 	},
 ];
 
-const openImagePopup = (src, title) => {
-	imagePopupImg.src = src;
-	imagePopupImg.alt = title;
-	imagePopupTitle.textContent = title;
-	imagePopup.classList.add('image-popup_opened');
-};
+let handleCardClick = null;
+
+export function setHandleCardClick(fn) {
+	handleCardClick = fn;
+}
 
 const renderer = (card) => {
-	const getCard = new Card(card.name, card.link, openImagePopup);
-	const cardElement = getCard.cardCreateElement();
-	galeria.appendChild(cardElement);
+	if (!handleCardClick) return;
+	const cardInstance = new Card(card.name, card.link, handleCardClick);
+	const cardElement = cardInstance.cardCreateElement();
+	section.addItem(cardElement);
 };
 
-const section = new Section(
-	{ items: initialCards, renderer: renderer },
-	'.element',
-);
+const section = new Section({ items: initialCards, renderer }, '.element');
 
-window.addEventListener('DOMContentLoaded', () => {
-	section.render();
-
-	imagePopupClose.addEventListener('click', () => {
-		imagePopup.classList.remove('image-popup_opened');
-	});
-});
-
-function handleAddFormSubmit(evt) {
+export function handleAddFormSubmit(evt) {
 	evt.preventDefault();
-	const openImagePopup = (src, title) => {
-		imagePopupImg.src = src;
-		imagePopupImg.alt = title;
-		imagePopupTitle.textContent = title;
-		imagePopup.classList.add('image-popup_opened');
-	};
+	if (!handleCardClick) return;
 	const newCard = {
 		name: imageNameInput.value.trim(),
 		link: imageLinkInput.value.trim(),
 	};
-	const addCard = new Card(newCard.name, newCard.link, openImagePopup);
-	addCard.cardCreateElement();
-	galeria.prepend(addCard.cardCreateElement());
+	const cardInstance = new Card(newCard.name, newCard.link, handleCardClick);
+	const cardElement = cardInstance.cardCreateElement();
+	section.addItem(cardElement);
 	imageNameInput.value = '';
 	imageLinkInput.value = '';
 }
 
-function resetValidation(form, obj) {
-	const inputList = Array.from(form.querySelectorAll(obj.inputSelector));
-	const submitButton = form.querySelector(obj.submitButtonSelector);
-	inputList.forEach((input) => {
-		const divError = form.querySelector(`#${input.id}-error`);
-		divError.classList.remove(obj.errorClass);
-		divError.textContent = '';
-	});
-	submitButton.classList.add(obj.inactiveButtonClass);
-	submitButton.disabled = true;
-}
-
-function handleProfileFormSubmit(evt) {
+export function handleProfileFormSubmit(evt) {
 	evt.preventDefault();
 	profileName.textContent = nameInput.value;
 	profileDescription.textContent = descriptionInput.value;
-}
-
-function handleEscClose(evt) {
-	if (evt.key === 'Escape') {
-		if (popup.classList.contains('popup_opened')) {
-			popupProfile.close();
-		}
-		if (addPopup.classList.contains('add-popup_opened')) {
-			popupAdd.close();
-		}
-		if (imagePopup.classList.contains('image-popup_opened')) {
-			imagePopup.classList.remove('image-popup_opened');
-		}
-	}
-}
-
-function clickOutCloseImagePopup(evt) {
-	if (evt.target === imagePopup) {
-		imagePopup.classList.remove('image-popup_opened');
-	}
 }
 
 export {
@@ -134,9 +81,6 @@ export {
 	nameInput,
 	profileDescription,
 	descriptionInput,
-	handleProfileFormSubmit,
-	imagePopup,
-	handleAddFormSubmit,
-	handleEscClose,
-	clickOutCloseImagePopup,
+	initialCards,
+	section,
 };
