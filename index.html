@@ -12,7 +12,7 @@
 
 		<!-- CSS -->
 
-		<link rel="stylesheet" href="./page/index.css" />
+		<link rel="stylesheet" href="./src/page/index.css" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 		<!-- TÍTULO DO SITE -->
@@ -23,14 +23,14 @@
 		<div class="page">
 			<header class="header">
 				<img
-					src="./images/logotipo.svg"
+					src="./src/images/logotipo.svg"
 					alt="imagem do logotipo do projeto"
 					class="header__logo" />
 			</header>
 			<main class="content">
 				<section class="profile">
 					<img
-						src="./images/profile_image.png"
+						src="./src/images/profile_image.png"
 						alt="Imagem do perfil da social media"
 						class="profile__image" />
 
@@ -48,7 +48,7 @@
 				<div class="popup__container">
 					<button class="popup__close-button">
 						<img
-							src="./images/Close-Icon.png"
+							src="./src/images/Close-Icon.png"
 							alt="Imagem de sinal de X para usar como botão fechar"
 							class="popup__close-button-img" />
 					</button>
@@ -96,7 +96,7 @@
 				<div class="add-popup__container">
 					<button class="popup__close-button">
 						<img
-							src="./images/Close-Icon.png"
+							src="./src/images/Close-Icon.png"
 							alt="Imagem de sinal de X para usar como botão fechar"
 							class="add-popup__close-button-img" />
 					</button>
@@ -142,12 +142,15 @@
 		</div>
 		<div class="image-popup">
 			<div class="image-popup__content">
-				<img src="./images/Close-Icon.png" alt="" class="image-popup__close" />
+				<img
+					src="./src/images/Close-Icon.png"
+					alt=""
+					class="image-popup__close" />
 				<img src=" " alt="" class="image-popup__img" />
 				<p class="image-popup__title"></p>
 			</div>
 		</div>
-		<script type="module" src="./page/index.js"></script>
-		<script type="module" src="./components/utils.js"></script>
+		<script type="module" src="./src/page/index.js"></script>
+		<script type="module" src="./src/components/utils.js"></script>
 	</body>
 </html>
