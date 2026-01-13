@@ -4,11 +4,7 @@ import Section from './Section.js';
 export const addPopup = document.querySelector('.add-popup');
 export const imageNameInput = document.querySelector('#add-name');
 export const imageLinkInput = document.querySelector('#add-link');
-export const profileName = document.querySelector('.profile__info-name');
 export const nameInput = document.querySelector('#name');
-export const profileDescription = document.querySelector(
-	'.profile__info-title',
-);
 export const descriptionInput = document.querySelector('#description');
 
 const initialCards = [
@@ -35,10 +31,6 @@ const initialCards = [
 	{
 		name: 'Lago di Braies',
 		link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg',
-	},
-	{
-		name: 'Capacete Top',
-		link: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH0fvNmYp_L1BuZi-ShsKBSpRuuwB8N9nQYw&s',
 	},
 ];
 

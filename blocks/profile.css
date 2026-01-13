@@ -22,7 +22,7 @@
 	line-height: 48px;
 	margin: 0;
 	padding-bottom: 16px;
-	align-self: center;
+	/* align-self: center; */
 }
 
 .profile__info-title {

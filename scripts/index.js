@@ -5,18 +5,22 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
 import {
 	addPopup,
-	profileName,
 	nameInput,
-	profileDescription,
 	descriptionInput,
 	setHandleCardClick,
 	section,
 } from './utils.js';
+import UserInfo from './userInfo.js';
 
 const formElement = document.querySelector('#popup__form');
 const editButton = document.querySelector('.profile__edit-button');
 const addFormElement = document.querySelector('.add-popup__form');
 const addBtn = document.querySelector('.profile__add-button');
+
+const userInfo = new UserInfo({
+	nameSelector: '.profile__info-name',
+	jobSelector: '.profile__info-title',
+});
 
 const imagePopup = new PopupWithImage('.image-popup');
 imagePopup.setEventListeners();
@@ -29,9 +33,10 @@ setHandleCardClick(handleCardClick);
 section.render();
 
 const popupProfile = new PopupWithForm('.popup', (formData) => {
-	profileName.textContent = formData.name;
-	profileDescription.textContent = formData.description;
-	popupProfile.close();
+	userInfo.setUserInfo({
+		name: formData.name,
+		job: formData.description,
+	});
 });
 
 const popupAdd = new PopupWithForm('.add-popup', (formData) => {
@@ -66,13 +71,10 @@ const validationCard = new FormValidator(
 validationCard.enableValidation();
 
 editButton.addEventListener('click', () => {
-	popupProfile.open();
-	const currentData = {
-		name: profileName.textContent,
-		description: profileDescription.textContent,
-	};
+	const currentData = userInfo.getUserInfo();
 	nameInput.value = currentData.name;
-	descriptionInput.value = currentData.description;
+	descriptionInput.value = currentData.job;
+	popupProfile.open();
 });
 
 addBtn.addEventListener('click', () => {
