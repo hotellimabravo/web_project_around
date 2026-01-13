@@ -1,16 +1,16 @@
-import Card from './card.js';
-import FormValidator from './formvalidator.js';
-import Popup from './Popup.js';
-import PopupWithImage from './PopupWithImage.js';
-import PopupWithForm from './PopupWithForm.js';
+import Card from '../components/card.js';
+import FormValidator from '../components/formvalidator.js';
+import Popup from '../components/Popup.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
 import {
 	addPopup,
 	nameInput,
 	descriptionInput,
 	setHandleCardClick,
 	section,
-} from './utils.js';
-import UserInfo from './userInfo.js';
+} from '../components/utils.js';
+import UserInfo from '../components/userInfo.js';
 
 const formElement = document.querySelector('#popup__form');
 const editButton = document.querySelector('.profile__edit-button');
