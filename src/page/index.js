@@ -10,7 +10,7 @@ import {
 	setHandleCardClick,
 	section,
 } from '../components/utils.js';
-import UserInfo from '../components/userInfo.js';
+import UserInfo from '../components/UserInfo.js';
 
 const formElement = document.querySelector('#popup__form');
 const editButton = document.querySelector('.profile__edit-button');
