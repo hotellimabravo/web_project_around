@@ -24,22 +24,22 @@ export default class Card {
 
 		const likeBtn = document.createElement('img');
 		likeBtn.classList.add('card__like-button');
-		likeBtn.src = './src/images/heartSVG.svg';
+		likeBtn.src = './images/heartSVG.svg';
 		likeBtn.alt = 'Imagem de um coração para curtidas!';
 
 		likeBtn.addEventListener('click', () => {
 			const isLiked = likeBtn.classList.toggle('liked');
 
 			if (isLiked) {
-				likeBtn.src = './src/images/heartSVGlike.svg';
+				likeBtn.src = './images/heartSVGlike.svg';
 			} else {
-				likeBtn.src = './src/images/heartSVG.svg';
+				likeBtn.src = './images/heartSVG.svg';
 			}
 		});
 
 		const delBtn = document.createElement('img');
 		delBtn.classList.add('card__delete-button');
-		delBtn.src = './src/images/trash.png';
+		delBtn.src = './images/trash.png';
 		delBtn.addEventListener('click', () => {
 			div.remove();
 		});

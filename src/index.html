@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- META TAGS  -->
+
+		<meta name="description" content="Around the U. S. A. social media" />
+		<meta name="author" content="Hugo Leonardo Baltazar" />
+		<meta name="keywords" content="Around the U.S." />
+
+		<!-- CSS -->
+
+		<link rel="stylesheet" href="./page/index.css" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<!-- TÍTULO DO SITE -->
+
+		<title>Around The US</title>
+	</head>
+	<body>
+		<div class="page">
+			<header class="header">
+				<img
+					src="./images/logotipo.svg"
+					alt="imagem do logotipo do projeto"
+					class="header__logo" />
+			</header>
+			<main class="content">
+				<section class="profile">
+					<img
+						src="./images/profile_image.png"
+						alt="Imagem do perfil da social media"
+						class="profile__image" />
+
+					<div class="profile__info">
+						<h1 class="profile__info-name">Jacques Cousteau</h1>
+						<p class="profile__info-title">Explorador</p>
+					</div>
+					<button class="profile__edit-button edit-button"></button>
+					<button class="profile__add-button"></button>
+				</section>
+
+				<section class="element"></section>
+			</main>
+			<div class="popup">
+				<div class="popup__container">
+					<button class="popup__close-button">
+						<img
+							src="./images/Close-Icon.png"
+							alt="Imagem de sinal de X para usar como botão fechar"
+							class="popup__close-button-img" />
+					</button>
+					<form id="popup__form" class="popup__form">
+						<h2 class="popup__form-title">Editar Perfil</h2>
+						<div class="popup__field">
+							<input
+								type="text"
+								id="name"
+								name="name"
+								class="popup__input"
+								placeholder="Nome"
+								required
+								minlength="2"
+								maxlength="40" />
+							<span class="popup__input-error" id="name-error"></span>
+						</div>
+						<div class="popup__field">
+							<input
+								type="text"
+								id="description"
+								name="description"
+								class="popup__input"
+								placeholder="Descrição"
+								required
+								minlength="2"
+								maxlength="200" />
+							<!-- nesta classe abaixo o nome deve ser popup__input input_type_error -->
+							<span class="popup__input-error" id="description-error"></span>
+						</div>
+						<button
+							type="submit"
+							name="salvar"
+							value="submit"
+							id="submit"
+							class="popup__form-save popup__button">
+							Salvar
+						</button>
+					</form>
+				</div>
+			</div>
+
+			<div action="" class="add-popup">
+				<!-- copiar para dentro de popup esta estrutura -->
+				<div class="add-popup__container">
+					<button class="popup__close-button">
+						<img
+							src="./images/Close-Icon.png"
+							alt="Imagem de sinal de X para usar como botão fechar"
+							class="add-popup__close-button-img" />
+					</button>
+					<form class="add-popup__form popup__form">
+						<h2 class="add-popup__form-title">Novo Local</h2>
+						<div class="popup__field">
+							<input
+								type="text"
+								id="add-name"
+								name="novo local"
+								class="add-popup__input popup__input"
+								placeholder="Título"
+								required
+								minlength="2"
+								maxlength="30" />
+							<span class="popup__input-error" id="add-name-error"></span>
+						</div>
+						<div class="popup__field">
+							<input
+								type="url"
+								id="add-link"
+								name="addCardlink"
+								class="add-popup__input popup__input"
+								placeholder="Link da Imagem"
+								required />
+							<span class="popup__input-error" id="add-link-error"></span>
+						</div>
+						<button
+							type="submit"
+							name="salvar"
+							value="submit"
+							id="add-submit"
+							class="add-popup__form-save popup__button">
+							Criar
+						</button>
+					</form>
+				</div>
+				<!-- Até aqui  -->
+			</div>
+			<footer class="footer">
+				<p class="footer__signature">© 2024 Around The U.S.</p>
+			</footer>
+		</div>
+		<div class="image-popup">
+			<div class="image-popup__content">
+				<img src="./images/Close-Icon.png" alt="" class="image-popup__close" />
+				<img src=" " alt="" class="image-popup__img" />
+				<p class="image-popup__title"></p>
+			</div>
+		</div>
+		<script type="module" src="./page/index.js"></script>
+		<script type="module" src="./components/utils.js"></script>
+	</body>
+</html>
