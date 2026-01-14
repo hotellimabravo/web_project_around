@@ -2,7 +2,7 @@ import Card from '../components/card.js';
 import FormValidator from '../components/formvalidator.js';
 import Popup from '../components/Popup.js';
 import PopupWithImage from '../components/PopupWithImage.js';
-import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithForm from '../components/popupWithForm.js';
 import {
 	addPopup,
 	nameInput,
